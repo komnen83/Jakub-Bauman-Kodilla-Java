@@ -1,4 +1,4 @@
 package com.kodilla;
 
-public class FirstClassgit {
+public class FirstClass {
 }
