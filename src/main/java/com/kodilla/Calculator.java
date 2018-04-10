@@ -20,7 +20,6 @@ public class Calculator {
 
 class CalculatorApp {
     public static void main(String[]args){
-
         Calculator simpleCalculator = new Calculator(5,6);
 
         int sum = simpleCalculator.sumAAndB();
