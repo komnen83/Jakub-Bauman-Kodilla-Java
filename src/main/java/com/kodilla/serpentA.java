@@ -7,7 +7,8 @@ class RandomA   {
     public String generateRandomA() {
         Random theGenerator = new Random();
         String myString = "a";
-        for (int i = 0; i < theGenerator.nextInt(50); i++) {
+        int number = theGenerator.nextInt(50);
+        for (int i = 0; i < number; i++) {
             myString += "a";
         }
         return myString;
@@ -19,7 +20,7 @@ class EvenAndOddSplitter {
     List<String> evenList = new ArrayList<String>();
     List<String> oddList = new ArrayList<String>();
 
-    public void EvenAndOddSplitter(Deque<String> theNumber)  {
+    public EvenAndOddSplitter(Deque<String> theNumber)  {
         while(!theNumber.isEmpty()) {
             String theTask = theNumber.poll();
 
@@ -53,8 +54,9 @@ class Serpent {
         }
         System.out.println("Random 'a' list: " + letter + "\nList size: " + letter.size() + "\n");
 
-        EvenAndOddSplitter evenAndOddSplitter = new EvenAndOddSplitter();
-        evenAndOddSplitter.EvenAndOddSplitter(letter);
+        EvenAndOddSplitter evenAndOddSplitter = new EvenAndOddSplitter(letter);
+        System.out.println(evenAndOddSplitter.getEvenList());
+        System.out.println(evenAndOddSplitter.getOddList());
     }
 }
 
