@@ -5,7 +5,6 @@ import com.kodilla.testing.forum.statistics.Statistics;
 import java.util.List;
 
 public class ForumStatistics {
-    Statistics statistics;
     private int usersNumber;
     private int postsNumber;
     private int commentsNumber;
