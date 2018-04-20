@@ -7,7 +7,6 @@ public class ShapeCollector {
 
 
     public Shape addFigure(Shape shape) {
-        shapes.add(new Triangle("Triangle", 12));
         return shape;
     }
 
