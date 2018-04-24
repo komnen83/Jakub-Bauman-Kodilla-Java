@@ -17,9 +17,18 @@ public class ForumStatistics {
         usersNumber = statistics.usersNames().size();
         commentsNumber = statistics.commentsCount();
         postsNumber = statistics.postsCount();
-        averagePosts = postsNumber/usersNumber;
-        averageComments = commentsNumber/usersNumber;
-        averageCommmentsPerPosts = commentsNumber/postsNumber;
+
+        if(usersNumber != 0)     {
+            averageComments = commentsNumber/usersNumber;
+            averagePosts = postsNumber/usersNumber;
+            averagePosts = (double)postsNumber/(double)usersNumber;
+            averageComments = (double)commentsNumber/(double)usersNumber;
+        }
+
+        if(postsNumber != 0)    {
+            averageCommmentsPerPosts = commentsNumber/postsNumber;
+            averageCommmentsPerPosts = (double)commentsNumber/(double)postsNumber;
+        }
     }
 
     public int getUsersNumber() {

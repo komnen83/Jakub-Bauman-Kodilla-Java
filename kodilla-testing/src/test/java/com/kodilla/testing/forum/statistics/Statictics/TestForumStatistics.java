@@ -18,16 +18,27 @@ public class TestForumStatistics {
         ForumStatistics forumStatistics = new ForumStatistics();
         Statistics statisticMock = mock(Statistics.class);
 
-        when(statisticMock.postsCount()).thenReturn(1000);
-        when(statisticMock.commentsCount()).thenReturn(10);
-        when(statisticMock.usersNames()).thenReturn(Arrays.asList("user1", "user2"));
+        when(statisticMock.postsCount()).thenReturn(0);
+        when(statisticMock.commentsCount()).thenReturn(0);
 
         //When
         forumStatistics.calculateAdvStatistics(statisticMock);
 
         //Then
-        Assert.assertEquals(500.0, forumStatistics.getAveragePosts(), 0000.1);
-        Assert.assertEquals(5.0, forumStatistics.getAverageComments(), 0.1);
-        Assert.assertEquals(0.01, forumStatistics.getAverageCommmentsPerPosts(), 1);
+        Assert.assertEquals(0, forumStatistics.getAveragePosts(), 0000.1);
+    }
+
+    @Test
+    public void testCulateAdvStatistics1()  {
+        //Given
+        ForumStatistics forumStatistics = new ForumStatistics();
+        Statistics statisticMock = mock(Statistics.class);
+
+        when(statisticMock.postsCount()).thenReturn(10);
+        when(statisticMock.commentsCount()).thenReturn(100);
+        //When
+        forumStatistics.calculateAdvStatistics(statisticMock);
+        //Then
+        Assert.assertEquals(10, forumStatistics.getAverageCommmentsPerPosts(), 0000.1);
     }
 }
