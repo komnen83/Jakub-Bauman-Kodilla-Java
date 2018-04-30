@@ -13,19 +13,18 @@ import java.util.stream.Collectors;
 public class StreamMain {
     public static void main(String[] args) {
 
-//        PoemBeautifier poemBeautifier = new PoemBeautifier();
-//        poemBeautifier.beautify(() -> System.out.println("Beautify".toUpperCase()));
-//        poemBeautifier.beautify(() -> System.out.println("each"));
-//        poemBeautifier.beautify(() -> System.out.println("text"));
-//        poemBeautifier.beautify(() -> System.out.println("line"));
+        PoemBeautifier poemBeautifier = new PoemBeautifier();
+        poemBeautifier.beautify("Graviora manent", u -> u.toUpperCase());
+        poemBeautifier.beautify("Veni vidi vici", s -> "*** " + s + " ***");
+        poemBeautifier.beautify("Alea iacta", s -> s.concat(" est"));
 
-        BookDirectory theBookDirectory = new BookDirectory();
-        String theResultStringOfBooks = theBookDirectory.getList().stream()
-                .filter(book -> book.getYearOfPublication() > 2005)
-                .map(Book::toString)
-                .collect(Collectors.joining(",\n","<<",">>"));
-
-        System.out.println(theResultStringOfBooks);
+//        BookDirectory theBookDirectory = new BookDirectory();
+//        String theResultStringOfBooks = theBookDirectory.getList().stream()
+//                .filter(book -> book.getYearOfPublication() > 2005)
+//                .map(Book::toString)
+//                .collect(Collectors.joining(",\n","<<",">>"));
+//
+//        System.out.println(theResultStringOfBooks);
     }
 }
 
