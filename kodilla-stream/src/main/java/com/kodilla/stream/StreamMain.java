@@ -1,7 +1,7 @@
 package com.kodilla.stream;
 
 import com.kodilla.stream.forumuser.Forum;
-import com.kodilla.stream.immutable.ForumUser;
+import com.kodilla.stream.forumuser.ForumUser;
 
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -11,7 +11,7 @@ public class StreamMain {
 
         Forum forum = new Forum();
 
-        Map<Integer, com.kodilla.stream.forumuser.ForumUser> userMap =
+        Map<Integer, ForumUser> userMap =
                 forum.getUserList().stream()
                 .filter(user -> user.getSex() == 'M')
                 .filter(user -> user.getBirthDay() < 1998)
