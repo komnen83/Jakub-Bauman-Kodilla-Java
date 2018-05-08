@@ -1,30 +1,27 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.book.Book;
-import com.kodilla.stream.book.BookDirectory;
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.person.People;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.immutable.ForumUser;
 
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
 
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("Graviora manent", u -> u.toUpperCase());
-        poemBeautifier.beautify("Veni vidi vici", s -> "*** " + s + " ***");
-        poemBeautifier.beautify("Alea iacta", s -> s.concat(" est"));
+        Forum forum = new Forum();
 
-//        BookDirectory theBookDirectory = new BookDirectory();
-//        String theResultStringOfBooks = theBookDirectory.getList().stream()
-//                .filter(book -> book.getYearOfPublication() > 2005)
-//                .map(Book::toString)
-//                .collect(Collectors.joining(",\n","<<",">>"));
-//
-//        System.out.println(theResultStringOfBooks);
+        Map<Integer, com.kodilla.stream.forumuser.ForumUser> userMap =
+                forum.getUserList().stream()
+                .filter(user -> user.getSex() == 'M')
+                .filter(user -> user.getBirthDay() < 1998)
+                .filter(user -> user.getPostNumber() >= 1)
+                .collect(Collectors.toMap(user -> user.getUserID(), user -> user));
+
+        System.out.println("# elements: " + userMap.size());
+        userMap.entrySet().stream()
+                .map(entry -> entry.getKey() + " " + entry.getValue())
+                .forEach(System.out::println);
     }
 }
 
