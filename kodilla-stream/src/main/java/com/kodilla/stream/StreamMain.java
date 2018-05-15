@@ -11,8 +11,7 @@ public class StreamMain {
 
         Forum forum = new Forum();
 
-        Map<Integer, ForumUser> userMap =
-                forum.getUserList().stream()
+        Map<Integer, ForumUser> userMap = forum.getUserList().stream()
                 .filter(user -> user.getSex() == 'M')
                 .filter(user -> user.getBirthDay() < 1998)
                 .filter(user -> user.getPostNumber() >= 1)
