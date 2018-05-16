@@ -7,11 +7,10 @@ public class ArrayOperationsTestSuite {
     @Test
     public void testGetAverage() {
         //Given
-        int numbers[] = new int[20];
-        Average average = new Average();
+        int numbers[] = {1,2,3,4,5,6,7,8,9};
         //When
-        double result = average.getAverage(numbers);
+        double result = ArrayOperations.getAverage(numbers);
         //Then
-        Assert.assertEquals(9.5, result, 0.0);
+        Assert.assertEquals(5.0, result, 0.0);
     }
 }
