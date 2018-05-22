@@ -161,6 +161,6 @@ public class BoardTestSuite {
                 .map(b -> ChronoUnit.DAYS.between(b.getCreated(), LocalDate.now()))
                 .collect(Collectors.averagingLong(c -> c));
 
-        Assert.assertEquals(10, average, 0);
+        Assert.assertEquals(10, average, 0.0);
     }
 }
