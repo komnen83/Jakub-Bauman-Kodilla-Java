@@ -37,7 +37,7 @@ class MovieStoreMain {
 
         String movies = movieStore.getMovies().entrySet().stream()
                 .map(entry -> entry.getKey() + ": " + entry.getValue())
-                .collect(Collectors.joining(" ! ","<<",">>"));
+                .collect(Collectors.joining(" ! ",""," ! "));
 
         System.out.println(movies);
     }
