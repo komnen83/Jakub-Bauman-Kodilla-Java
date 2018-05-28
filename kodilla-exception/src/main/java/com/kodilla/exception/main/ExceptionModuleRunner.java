@@ -10,23 +10,14 @@ import java.util.Map;
 public class ExceptionModuleRunner {
     public static void main(String[] args)  {
 
-//        FlightSearcher flightSearcher = new FlightSearcher();
-        Map<FlightSearcher, Boolean> flightMap = new HashMap<>();
+
+        FileReader fileReader = new FileReader();
 
         try {
-            flightMap.put(new FlightSearcher("asdf", true));
-//            flightSearcher.findFlight("asfas", "sadfasf");
+            fileReader.readFile();
         } catch (Exception e) {
-            System.out.println("Problem");
+            System.out.println("Problem while reading a file!");
         }
-
-//        FileReader fileReader = new FileReader();
-//
-//        try {
-//            fileReader.readFile();
-//        } catch (Exception e) {
-//            System.out.println("Problem while reading a file!");
-//        }
 
     }
 }

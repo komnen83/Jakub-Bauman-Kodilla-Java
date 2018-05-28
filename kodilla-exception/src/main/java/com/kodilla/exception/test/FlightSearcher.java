@@ -4,15 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FlightSearcher {
+    @Override
+    public String toString() {
+        return "FlightSearcher{}";
+    }
+
     public void findFlight(Flight flight) throws RouteNotFoundException   {
 
-        Map<String, Boolean> flights = new HashMap<>();
+        Map<String, Boolean> airports = new HashMap<>();
+        airports.put("Okecie", true);
+        airports.put("Orly", false);
+        airports.put("Heathrow", true);
 
-        try {
-            flights.put(new Flight("Orly", true);
-            flights.get("Orly");
-        } catch (Exception e)  {
-            throw new RouteNotFoundException();
-        }
     }
 }
