@@ -12,7 +12,7 @@ public class FlightMain {
             flightSearcher.findFlight(new Flight("De Gaulle", "Heathrow"));
 
         } catch (RouteNotFoundException e) {
-            System.out.println("Problem");
+
         }
     }
 }
