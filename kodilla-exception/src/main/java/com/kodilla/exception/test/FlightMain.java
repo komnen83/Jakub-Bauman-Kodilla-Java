@@ -8,11 +8,11 @@ public class FlightMain {
         try {
 
             flightSearcher.findFlight(new Flight("Orly", "Okecie"));
-            flightSearcher.findFlight(new Flight("Heathrow", "Okecie"));
+            flightSearcher.findFlight(new Flight("Heathrow", "Orly"));
             flightSearcher.findFlight(new Flight("De Gaulle", "Heathrow"));
 
         } catch (RouteNotFoundException e) {
-
+            System.out.println("We have a problem here.");
         }
     }
 }

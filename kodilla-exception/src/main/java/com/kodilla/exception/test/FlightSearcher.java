@@ -15,7 +15,7 @@ public class FlightSearcher {
 
         Boolean isFlightAvailable = airports.get(flight.getArrivalAirport());
 
-        if(isFlightAvailable != true)   {
+        if(isFlightAvailable == null || isFlightAvailable == false)   {
             throw new RouteNotFoundException("We have a problem here.");
         } else {
             System.out.println("Flight from: " + flight.getDepartureAirport() + " to " +
