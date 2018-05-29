@@ -13,16 +13,15 @@ public class FlightSearcher {
         airports.put("Orly", false);
         airports.put("Heathrow", true);
 
-        try {
-            if (airports.containsKey(flight.getDepartureAirport())) {
-                System.out.println("Flight from: " + flight.getDepartureAirport() + " to " +
-                        flight.getArrivalAirport() + " is possible");
-            } else {
-                System.out.println("We have a problem here.");
-            }
-        } catch (Exception e) {
-            throw new RouteNotFoundException("We have a problem here.");
-        }
+        Boolean isFlightAvailable = airports.get(flight.getArrivalAirport());
 
+        if(isFlightAvailable != true)   {
+            throw new RouteNotFoundException("We have a problem here.");
+        } else {
+            System.out.println("Flight from: " + flight.getDepartureAirport() + " to " +
+                    flight.getArrivalAirport() + " is possible");
+        }
     }
 }
+
+
