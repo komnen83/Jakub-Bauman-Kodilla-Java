@@ -1,29 +1,28 @@
-import com.kodilla.good.patterns.challenges.RentRequest;
+package com.kodilla.good.patterns.challenges;
 
-public class RentalProcessor {
+public class ProductOrderService {
 
-    private InformationService informationService;
-    private RentalService rentalService;
-    private RentalRepository rentalRepository;
+    private InformationSender informationSender;
+    private PurchaseService purchaseService;
+    private PurchaseRepository purchaseRepository;
 
-    public RentalProcessor(final InformationService informationService,
-                           final RentalService rentalService,
-                           final RentalRepository rentalRepository) {
-        this.informationService = informationService;
-        this.rentalService = rentalService;
-        this.rentalRepository = rentalRepository;
+    public ProductOrderService(final InformationSender informationSender,
+                               final PurchaseService purchaseService,
+                               final PurchaseRepository purchaseRepository) {
+        this.informationSender = informationSender;
+        this.purchaseService = purchaseService;
+        this.purchaseRepository = purchaseRepository;
     }
 
-    public RentalDto process(final RentRequest rentRequest) {
-        boolean isRented = rentalService.rent(rentRequest.getUser(), rentRequest.getFrom(),
-                rentRequest.getTo());
+    public PurchaseDto process(final PurchaseRequest purchaseRequest) {
+        boolean isPurchased = purchaseService.purchase(purchaseRequest.getUser(), purchaseRequest.getProduct());
 
-        if(isRented) {
-            informationService.inform(rentRequest.getUser());
-            rentalRepository.createRental(rentRequest.getUser(), rentRequest.getFrom(), rentRequest.getTo());
-            return new RentalDto(rentRequest.getUser(), true);
+        if(isPurchased) {
+            informationSender.inform(purchaseRequest.getUser());
+            purchaseRepository.createPurchase(purchaseRequest.getUser(), purchaseRequest.getProduct());
+            return new PurchaseDto(purchaseRequest.getUser(), true);
         } else {
-            return new RentalDto(rentRequest.getUser(), false);
+            return new PurchaseDto(purchaseRequest.getUser(), false);
         }
     }
 }

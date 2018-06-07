@@ -1,10 +1,11 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.CarRentalService;
 
 public class RentalDto {
+
     public User user;
     public boolean isRented;
 
-    public RentalDto(final User user, final boolean isRented) {
+    public RentalDto(User user, boolean isRented) {
         this.user = user;
         this.isRented = isRented;
     }
