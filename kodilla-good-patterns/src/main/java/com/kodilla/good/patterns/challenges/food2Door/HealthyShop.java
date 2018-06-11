@@ -1,8 +1,8 @@
 package com.kodilla.good.patterns.challenges.food2Door;
 
-public class HealthyShop {
-    @Override
-    public void process() {
+public class HealthyShop implements ShopRepository{
+
+    public void process(Customer customer, Product product) {
 
     }
 }

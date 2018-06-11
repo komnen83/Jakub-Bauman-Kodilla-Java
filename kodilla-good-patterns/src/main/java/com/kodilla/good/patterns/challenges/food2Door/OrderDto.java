@@ -1,20 +1,20 @@
 package com.kodilla.good.patterns.challenges.food2Door;
 
-public class OrderDto  {
+public class OrderDto {
 
-        public Provider provider;
-        public boolean isOrdered;
+    private Customer customer;
+    private boolean isOrdered;
 
-    public OrderDto(Provider provider, boolean isOrdered) {
-        this.provider = provider;
+    public OrderDto(Customer customer, boolean isOrdered) {
+        this.customer = customer;
         this.isOrdered = isOrdered;
-    }
-
-    public Provider getProvider() {
-        return provider;
     }
 
     public boolean isOrdered() {
         return isOrdered;
+    }
+
+    public Customer getCustomer() {
+        return customer;
     }
 }
