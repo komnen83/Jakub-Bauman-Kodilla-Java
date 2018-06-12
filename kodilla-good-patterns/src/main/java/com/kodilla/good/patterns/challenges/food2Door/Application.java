@@ -5,7 +5,10 @@ public class Application {
 
         OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
         OrderRequest orderRequest = orderRequestRetriever.retrieve();
-        ProductOrderService productOrderService = new ProductOrderService(new OrderRequest());
+        ShopRepository healthyShop = new HealthyShop();
+        OrderRetrieve orderRetrieve = new OrderRetrieve();
+
+        ProductOrderService productOrderService = new ProductOrderService(orderRetrieve,healthyShop);
 
         productOrderService.order(orderRequest);
 

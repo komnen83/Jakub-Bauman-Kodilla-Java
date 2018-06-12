@@ -1,6 +1,8 @@
 package com.kodilla.good.patterns.challenges.food2Door;
 
-public interface OrderRetrieve {
+public class OrderRetrieve {
 
-    boolean retrieve(Customer customer, Product product, Shop shop);
+    boolean retrieve(Customer customer, Product product, Shop shop){
+        return true;
+    }
 }
