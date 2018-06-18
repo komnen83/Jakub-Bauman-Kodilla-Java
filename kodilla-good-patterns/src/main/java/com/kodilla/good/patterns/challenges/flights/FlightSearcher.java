@@ -3,7 +3,6 @@ package com.kodilla.good.patterns.challenges.flights;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 public class FlightSearcher {
 
     private FlightStorage flightStorage = new FlightStorage();
@@ -28,10 +27,6 @@ public class FlightSearcher {
 
     public boolean checkFlightFromTheCityToTheCityWithTransfer
             (String departureAirportName, String transferAirportName, String destinationAirportName)    {
-
-//        boolean listFlightFromCityToTheCityWithTransfer = flightStorage.getAvailableFlights().stream()
-//                .filter(flight -> flight.getDepartureAirport().equals(departureAirportName))
-//                .filter(flight -> flight.getDepartureAirport().equals(destinationAirportName));
 
         List<Flight> transferFlights = flightStorage.getAvailableFlights().stream()
                 .filter(flight -> flight.getDepartureAirport().equals(departureAirportName))
