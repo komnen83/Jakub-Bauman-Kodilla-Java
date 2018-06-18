@@ -6,6 +6,9 @@ public class FlightSearcherApp {
         FlightStorage flightStorage = new FlightStorage();
         FlightSearcher flightSearcher = new FlightSearcher();
 
-        System.out.println(flightSearcher.getAllFlightsFrom(flightStorage));
+        System.out.println(flightSearcher.getAllFlightsFrom("GDANSK"));
+        System.out.println(flightSearcher.getAllFlightsTo("WARSZAWA"));
+        System.out.println(flightSearcher.checkFlightFromTheCityToTheCityWithTransfer
+                ("WROCLAW", "KRAKOW", "GDANSK"));
     }
 }

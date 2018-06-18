@@ -13,9 +13,13 @@ public class FlightStorage {
 
         availableFlights.add(new Flight("WROCLAW", "WARSZAWA"));
         availableFlights.add(new Flight("WROCLAW", "GDANSK"));
-        availableFlights.add(new Flight("WARSZAWA", "GDANSK"));
-        availableFlights.add(new Flight("KRAKOW", "WARSZAWA"));
+        availableFlights.add(new Flight("GDANSK", "WROCLAW"));
+        availableFlights.add(new Flight("GDANSK", "WARSZAWA"));
         availableFlights.add(new Flight("KRAKOW", "GDANSK"));
+        availableFlights.add(new Flight("KRAKOW", "WARSZAWA"));
+        availableFlights.add(new Flight("WARSZAWA", "GDANSK"));
+        availableFlights.add(new Flight("WARSZAWA", "WROCLAW"));
+        availableFlights.add(new Flight("WARSZAWA", "KRAKOW"));
     }
 
     public List<Flight> getAvailableFlights() {

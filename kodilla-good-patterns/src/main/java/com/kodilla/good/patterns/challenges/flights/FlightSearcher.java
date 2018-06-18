@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class FlightSearcher {
 
-    private FlightStorage flightStorage;
+    private FlightStorage flightStorage = new FlightStorage();
 
     public List<Flight> getAllFlightsFrom(String airportName) {
 
@@ -25,14 +25,25 @@ public class FlightSearcher {
 
         return listFlightTo;
     }
-//
-//    public boolean checkFlightFromTheCityToTheCityWithTransfer
-//            (String departureAirportName, String transferAirportName, String destinationAirportName)    {
-//
+
+    public boolean checkFlightFromTheCityToTheCityWithTransfer
+            (String departureAirportName, String transferAirportName, String destinationAirportName)    {
+
 //        boolean listFlightFromCityToTheCityWithTransfer = flightStorage.getAvailableFlights().stream()
 //                .filter(flight -> flight.getDepartureAirport().equals(departureAirportName))
 //                .filter(flight -> flight.getDepartureAirport().equals(destinationAirportName));
-//
-//        return listFlightFromCityToTheCityWithTransfer;
-//    }
+
+        List<Flight> transferFlights = flightStorage.getAvailableFlights().stream()
+                .filter(flight -> flight.getDepartureAirport().equals(departureAirportName))
+                .filter(flight -> flight.getArrivalAirport().equals(transferAirportName))
+                .collect(Collectors.toList());
+
+        List<Flight> targetFlights = flightStorage.getAvailableFlights().stream()
+                .filter(flight -> flight.getDepartureAirport().equals(transferAirportName))
+                .filter(flight -> flight.getArrivalAirport().equals(destinationAirportName))
+                .collect(Collectors.toList());
+
+        return !transferFlights.isEmpty() && !targetFlights.isEmpty();
+
+    }
 }
