@@ -16,6 +16,7 @@ public class FlightSearcher {
 
         return listFlightFrom;
     }
+
     public List<Flight> getAllFlightsTo(String airportName) {
 
         List<Flight> listFlightTo = flightStorage.getAvailableFlights().stream()

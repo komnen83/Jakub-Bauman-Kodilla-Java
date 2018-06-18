@@ -7,7 +7,7 @@ public class FlightStorage {
 
     private List<Flight> availableFlights;
 
-    public FlightStorage(List<Flight> availableFlights) {
+    public FlightStorage() {
 
         availableFlights = new ArrayList<Flight>();
 
