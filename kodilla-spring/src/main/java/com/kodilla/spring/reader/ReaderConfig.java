@@ -30,4 +30,6 @@ public class ReaderConfig {
     public Book getBookTwo() {
         return new Book("The book number two");
     }
+
+
 }
