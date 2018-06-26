@@ -31,19 +31,19 @@ public class LibraryTestSuite {
         Library deepCloneLibrary = null;
         try{
             deepCloneLibrary = library.deepCopy();
-            cloneLibrary.setName("With deep clone");
+            deepCloneLibrary.setName("With deep clone");
         } catch (CloneNotSupportedException e)  {
             System.out.println(e);
         }
+
+        library.getBooks().remove(book);
 
         System.out.println(library);
         System.out.println(cloneLibrary);
         System.out.println(deepCloneLibrary);
 
-//        library.getBooks().remove(book);
-
-        Assert.assertEquals(4, library.getBooks().size());
-        Assert.assertEquals(4, cloneLibrary.getBooks().size());
+        Assert.assertEquals(3, library.getBooks().size());
+        Assert.assertEquals(3, cloneLibrary.getBooks().size());
         Assert.assertEquals(4, deepCloneLibrary.getBooks().size());
     }
 }
