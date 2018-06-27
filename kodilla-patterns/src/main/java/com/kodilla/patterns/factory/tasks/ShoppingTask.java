@@ -5,6 +5,7 @@ public class ShoppingTask implements Task {
     private String taskName;
     private String whatToBuy;
     private double quantity;
+    private boolean taskExecuted = false;
 
     public ShoppingTask(String taskName, String whatToBuy, double quantity) {
         this.taskName = taskName;
@@ -17,12 +18,13 @@ public class ShoppingTask implements Task {
     }
 
     public void executeTask() {
-
+        System.out.println("Task in progress: " + taskName);
+        taskExecuted = true;
     }
 
     @Override
     public boolean isTaskExecuted() {
-        return false;
+        return taskExecuted;
     }
 
     @Override
