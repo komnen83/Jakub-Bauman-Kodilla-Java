@@ -24,8 +24,8 @@ public class Product {
         return id;
     }
 
-    public void setId(int id) {
-        id = id;
+    public void setId(int newId) {
+        id = newId;
     }
 
     @Column(name = "PRODUCT_NAME")

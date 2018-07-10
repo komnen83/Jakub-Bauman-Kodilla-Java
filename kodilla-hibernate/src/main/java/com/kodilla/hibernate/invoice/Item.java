@@ -35,8 +35,12 @@ public class Item {
         this.id = id;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "PRODUCT_ID")
+    @ManyToOne(cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            targetEntity = Product.class
+    )
+    @JoinColumn(name = "PRODUCT_ID"
+    )
     public Product getProduct() {
         return product;
     }
