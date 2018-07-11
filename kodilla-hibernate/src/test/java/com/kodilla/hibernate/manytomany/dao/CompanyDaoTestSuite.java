@@ -99,8 +99,8 @@ public class CompanyDaoTestSuite {
         List<Company> firstThreeLetters = companyDao.showFirstThreeLetters();
         List<Employee> seekLastName = employeeDao.seekLastname();
 
-        Assert.assertEquals(3, firstThreeLetters);
-        Assert.assertEquals(1, seekLastName);
+        Assert.assertEquals(0, firstThreeLetters.size());
+        Assert.assertEquals(4, seekLastName.size());
 
         //CleanUp
         try {
