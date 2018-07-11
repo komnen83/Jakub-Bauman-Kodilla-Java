@@ -13,7 +13,7 @@ import java.util.Date;
         ),
         @NamedQuery(
                 name = "Task.retrieveShortTasks",
-                query = "FROM Task WHERE durationa <= 10"
+                query = "FROM Task WHERE duration <= 10"
         )
 })
 
