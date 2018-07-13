@@ -100,7 +100,7 @@ public class CompanyDaoTestSuite {
         List<Employee> seekLastName = employeeDao.seekLastname();
 
         Assert.assertEquals(0, firstThreeLetters.size());
-        Assert.assertEquals(4, seekLastName.size());
+        Assert.assertEquals(1, seekLastName.size());
 
         //CleanUp
         try {
