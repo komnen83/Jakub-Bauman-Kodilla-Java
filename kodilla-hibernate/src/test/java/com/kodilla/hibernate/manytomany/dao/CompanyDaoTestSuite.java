@@ -60,6 +60,9 @@ public class CompanyDaoTestSuite {
             companyDao.delete(softwareMachineId);
             companyDao.delete(dataMaesterId);
             companyDao.delete(greyMatterId);
+            employeeDao.delete(johnSmith);
+            employeeDao.delete(stephanieClarskon);
+            employeeDao.delete(lindaKovalsky);
         } catch (Exception e) {
             //do nothing
         }
@@ -107,6 +110,9 @@ public class CompanyDaoTestSuite {
             companyDao.delete(softwareMachineId);
             companyDao.delete(dataMaesterId);
             companyDao.delete(greyMatterId);
+            employeeDao.delete(johnSmith);
+            employeeDao.delete(stephanieClarskon);
+            employeeDao.delete(lindaKovalsky);
         } catch (Exception e) {
             //do nothing
         }
