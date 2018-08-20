@@ -24,6 +24,7 @@ public class SearchFacade {
             wasError = false;
             throw new SearchException(SearchException.ERR_COMPANY_NOT_FOUND);
         }
+        return List<Company>;
     }
 
     public List<Employee> searchEmployee(final EmployeeDao employeeDao) throws  SearchException {
@@ -34,5 +35,6 @@ public class SearchFacade {
             wasError = false;
             throw new SearchException(SearchException.ERR_EMPLOYEE_NOT_FOUND);
         }
+        return List<Employee>;
     }
 }
