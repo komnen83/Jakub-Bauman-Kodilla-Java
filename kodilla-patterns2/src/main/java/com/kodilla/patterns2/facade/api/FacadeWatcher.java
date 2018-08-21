@@ -15,6 +15,5 @@ public class FacadeWatcher {
     "&& args(order) && target(object)")
     public void logEvent(OrderDto order, Object object) {
         LOGGER.info("Class: " + object.getClass().getName() + "Args: " + order);
-        LOGGER.info("Logging the event");
     }
 }
