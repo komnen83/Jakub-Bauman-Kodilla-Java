@@ -15,6 +15,11 @@ import java.util.List;
         query = "FROM Employee WHERE lastname LIKE('%', :NAME, '%')"
 )
 
+@NamedQuery(
+        name = "Employee.retrieveEmployeesWithLastnameLike",
+        query = "FROM Employee WHERE lastname LIKE :ARG"
+)
+
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {

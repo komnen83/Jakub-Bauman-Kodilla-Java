@@ -4,37 +4,46 @@ import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
 import com.kodilla.hibernate.manytomany.dao.CompanyDao;
 import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class SearchFacade {
 
-    private Company company;
-    private Employee employee;
-    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(SearchFacade.class);
+    @Autowired
+    private CompanyDao companyDao;
+    @Autowired
+    private EmployeeDao employeeDao;
+    private static final Logger LOGGER = LoggerFactory.getLogger(SearchFacade.class);
 
-    public List<Company> searchCompany(final CompanyDao companyDao) throws SearchException {
+    public List<Employee> searchEmployeesWithLastnameLike(final String arg) throws SearchException {
         boolean wasError = false;
-        LOGGER.info("Searching company name" + company.getName());
-        if (!companyDao.findMatchingName(String "Nie wiem co tutaj za argumentu uzyc")) {
-            LOGGER.error(SearchException.ERR_COMPANY_NOT_FOUND);
-            wasError = false;
-            throw new SearchException(SearchException.ERR_COMPANY_NOT_FOUND);
+        List<Employee> employeesWithLastnameSearchResult = new ArrayList<>();
+        employeesWithLastnameSearchResult.addAll(employeeDao.retrieveEmployeesWithLastnameLike(arg));
+        if(employeesWithLastnameSearchResult.size() == 0) {
+            LOGGER.error(SearchException.ERR_EMPLOYEE_NOT_FOUND);
+            wasError = true;
+            throw new SearchException(SearchException.ERR_EMPLOYEE_NOT_FOUND);
+        } else {
+            return employeesWithLastnameSearchResult;
         }
-        return List<Company>;
     }
 
-    public List<Employee> searchEmployee(final EmployeeDao employeeDao) throws  SearchException {
+    public List<Employee> searchCompanyWithCompanyNameLike(final String arg) throws SearchException {
         boolean wasError = false;
-        LOGGER.info("Searching employee lastname" + employee.getLastname());
-        if(!employeeDao.findMatchingName(String "Nie wiem co tutaj za argumentu uzyc")) {
-            LOGGER.error(SearchException.ERR_EMPLOYEE_NOT_FOUND);
-            wasError = false;
-            throw new SearchException(SearchException.ERR_EMPLOYEE_NOT_FOUND);
+        List<Company> companyWithCompanyNameSearchResult = new ArrayList<>();
+        companyWithCompanyNameSearchResult.addAll(companyDao.retrieveCompaniesWithCompanyNameLike(arg));
+        if(companyWithCompanyNameSearchResult.size() == 0) {
+            LOGGER.error(SearchException.ERR_COMPANY_NOT_FOUND);
+            wasError = true;
+            throw new SearchException(SearchException.ERR_COMPANY_NOT_FOUND);
+        } else {
+            return companyWithCompanyNameSearchResult;
         }
-        return List<Employee>;
     }
 }
