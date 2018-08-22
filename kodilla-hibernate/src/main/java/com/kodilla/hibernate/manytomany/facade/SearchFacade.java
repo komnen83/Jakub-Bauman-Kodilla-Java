@@ -34,7 +34,7 @@ public class SearchFacade {
         }
     }
 
-    public List<Employee> searchCompanyWithCompanyNameLike(final String arg) throws SearchException {
+    public List<Company> searchCompanyByNameLike(final String arg) throws SearchException {
         boolean wasError = false;
         List<Company> companyWithCompanyNameSearchResult = new ArrayList<>();
         companyWithCompanyNameSearchResult.addAll(companyDao.retrieveCompaniesWithCompanyNameLike(arg));

@@ -12,8 +12,8 @@ import java.util.List;
 )
 
 @NamedQuery(
-        name = "Company.findMatchingName",
-        query = "FROM Company WHERE name LIKE CONCAT('%', :NAME, '%')",
+        name = "Company.retrieveCompaniesWithCompanyNameLike",
+        query = "FROM Company WHERE company_name LIKE :ARG"
 )
 
 
