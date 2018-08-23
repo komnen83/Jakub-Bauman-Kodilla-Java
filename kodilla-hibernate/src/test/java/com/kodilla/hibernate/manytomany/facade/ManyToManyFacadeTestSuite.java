@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -27,6 +28,7 @@ public class ManyToManyFacadeTestSuite {
     private SearchFacade searchFacade;
 
     @Test
+    @Transactional
     public void facadeTest() {
         //Given
         Employee johnSmith = new Employee("John", "Smith");
@@ -66,14 +68,6 @@ public class ManyToManyFacadeTestSuite {
             List<Company> result = searchFacade.searchCompanyByNameLike("%er%");
             assertEquals(2, result.size());
         } catch (SearchException e) {
-            //do nothing
-        }
-
-        //CleanUp
-        try {
-            companyDao.deleteAll();
-            employeeDao.deleteAll();
-        } catch (Exception e) {
             //do nothing
         }
     }
